@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TapeLand</title>
+
+<style>
+
+body {
+    margin: 0;
+    background: #0b0b0b;
+    color: #eeeeee;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 30px;
+}
+
+.logo {
+    font-size: 56px;
+    letter-spacing: 8px;
+    font-weight: 300;
+}
+
+.subtitle {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #999;
+    letter-spacing: 2px;
+}
+
+.line {
+    margin: 60px 0;
+    height: 1px;
+    background: #333;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #333;
+    padding: 35px 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background: #151515;
+    border-color: #777;
+}
+
+.card h2 {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 3px;
+}
+
+.card p {
+    color:#888;
+    font-size:14px;
+}
+
+
+.footer {
+    margin-top:100px;
+    color:#555;
+    font-size:13px;
+}
+
+@media(max-width:700px){
+    .menu{
+        grid-template-columns:1fr;
+    }
+
+    .logo{
+        font-size:40px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+TAPE LAND
+</div>
+
+<div class="subtitle">
+An Archive of Analog Tape Culture
+</div>
+
+
+<div class="line"></div>
+
+
+<div class="menu">
+
+<div class="card">
+<h2>BRANDS</h2>
+<p>Sony · TDK · Maxell · AXIA</p>
+</div>
+
+
+<div class="card">
+<h2>TIMELINE</h2>
+<p>History of Analog Tape</p>
+</div>
+
+
+<div class="card">
+<h2>ARCHIVE</h2>
+<p>Catalogs · Ads · Documents</p>
+</div>
+
+
+</div>
+
+
+<div class="footer">
+
+TapeLand v0.1<br>
+A digital archive dedicated to analog sound memories.
+
+</div>
+
+
+</div>
+
+
+</body>
+</html>
