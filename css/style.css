@@ -4,15 +4,19 @@
    ========================================================= */
 
 
-/* ---------- BASE ---------- */
+/* =========================================================
+   BASE
+   ========================================================= */
 
 * {
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
+
 
 body {
     margin: 0;
@@ -57,8 +61,8 @@ img {
    ========================================================= */
 
 .container {
-    width: 90%;
-    max-width: 1380px;
+    width: 94%;
+    max-width: 1600px;
     margin: 0 auto;
 }
 
@@ -147,7 +151,7 @@ img {
 
 
 /* =========================================================
-   HOME MAIN FEATURE GRID
+   HOME FEATURE GRID
    左：品牌墙
    右：广告
    ========================================================= */
@@ -155,17 +159,17 @@ img {
 .home-feature-grid {
     display: grid;
 
-    /*
-       左栏约 34%
-       右栏约 66%
-    */
     grid-template-columns:
         minmax(300px, 0.34fr)
         minmax(0, 0.66fr);
 
     gap: 30px;
 
-    align-items: start;
+    /*
+       关键：
+       让左右两栏自动拉伸到相同高度
+    */
+    align-items: stretch;
 
     margin-top: 10px;
 }
@@ -178,11 +182,7 @@ img {
 
 .left-column {
     width: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 46px;
+    height: 100%;
 }
 
 
@@ -193,20 +193,30 @@ img {
 
 .brand-wall {
     width: 100%;
+    height: 100%;
 
-    padding: 20px 20px;
+    padding: 20px;
 
     background: #5e6b74;
 
-    /*
-       与下面 archive-card 保持完全相同宽度
-    */
     overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    /*
+       把内部 Logo 均匀分布，
+       避免因为右侧广告变高以后
+       品牌全部挤在顶部
+    */
+    justify-content: space-between;
 }
 
 
 
-/* 单个品牌 Logo */
+/* =========================================================
+   BRAND ITEM
+   ========================================================= */
 
 .brand-item {
     width: 100%;
@@ -215,7 +225,7 @@ img {
     align-items: center;
     justify-content: center;
 
-    padding: 5px 8px;
+    padding: 4px 8px;
 
     border-radius: 3px;
 
@@ -235,11 +245,6 @@ img {
 
     opacity: 0.97;
 
-    /*
-       品牌 Logo 已经全部改成白色，
-       所以这里不再强制 filter。
-    */
-
     transition:
         opacity 0.2s ease,
         transform 0.2s ease,
@@ -248,7 +253,9 @@ img {
 
 
 
-/* Hover */
+/* =========================================================
+   BRAND HOVER
+   ========================================================= */
 
 .brand-item:hover {
     background:
@@ -262,8 +269,7 @@ img {
     transform: scale(1.035);
 
     /*
-       白色 Logo hover 时轻微偏冷灰蓝
-       如果觉得变化不明显，可以后面再调整。
+       白色 Logo hover 后变冷灰蓝
     */
     filter:
         brightness(0)
@@ -278,15 +284,14 @@ img {
 
 
 
-/* 单行单品牌 */
+/* =========================================================
+   BRAND ROWS
+   ========================================================= */
 
 .brand-full {
     width: 100%;
 }
 
-
-
-/* 一行两个品牌 */
 
 .brand-row {
     width: 100%;
@@ -308,150 +313,61 @@ img {
 
 
 /* =========================================================
-   BRAND LOGO 尺寸微调
-   每个 Logo 原始比例不同，所以允许单独控制
+   INDIVIDUAL LOGO SIZE CONTROL
    ========================================================= */
 
-/* TDK */
-
-.brand-wall a[href="#"]:has(
-    img[alt="TDK"]
-) img {
+.brand-wall img[alt="TDK"] {
     max-height: 105px;
 }
 
-
-/* SONY */
 
 .brand-wall img[alt="SONY"] {
-    max-height: 90px;
+    max-height: 92px;
 }
 
-
-/* maxell */
 
 .brand-wall img[alt="maxell"] {
-    max-height: 105px;
+    max-height: 108px;
 }
 
-
-/* AXIA */
 
 .brand-wall img[alt="AXIA"] {
-    max-height: 64px;
+    max-height: 65px;
 }
 
-
-/* DENON */
 
 .brand-wall img[alt="DENON"] {
-    max-height: 64px;
+    max-height: 62px;
 }
 
-
-/* That's */
 
 .brand-wall img[alt="That's"] {
     max-height: 62px;
 }
 
 
-/* AIWA */
-
 .brand-wall img[alt="AIWA"] {
     max-height: 62px;
 }
 
 
-/* BASF */
-
 .brand-wall img[alt="BASF"] {
-    max-height: 90px;
+    max-height: 92px;
 }
 
-
-/* TOSHIBA */
 
 .brand-wall img[alt="TOSHIBA"] {
-    max-height: 82px;
+    max-height: 84px;
 }
 
-
-/* Panasonic */
 
 .brand-wall img[alt="Panasonic"] {
     max-height: 52px;
 }
 
 
-/* SANYO */
-
 .brand-wall img[alt="SANYO"] {
     max-height: 52px;
-}
-
-
-
-/* =========================================================
-   LEFT ARCHIVE CARD
-   与品牌墙完全同宽
-   ========================================================= */
-
-.archive-card {
-    width: 100%;
-
-    min-height: 230px;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    border: 1px solid #343a3f;
-
-    background:
-        rgba(255, 255, 255, 0.025);
-
-    padding: 36px 24px;
-
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
-}
-
-
-.archive-card:hover {
-    background:
-        rgba(138, 154, 165, 0.07);
-
-    border-color: #58636a;
-
-    transform: translateY(-2px);
-}
-
-
-.archive-card-title {
-    margin-bottom: 24px;
-
-    color: #9cabb5;
-
-    font-size: 19px;
-    font-weight: 600;
-
-    letter-spacing: 5px;
-}
-
-
-.archive-card-text {
-    color: #c2c8cc;
-
-    font-size: 15px;
-
-    line-height: 1.3;
 }
 
 
@@ -462,6 +378,7 @@ img {
 
 .right-column {
     width: 100%;
+    height: 100%;
 }
 
 
@@ -472,75 +389,55 @@ img {
 
 .featured-ad {
     width: 100%;
+    height: 100%;
+}
+
+
+.featured-ad-link {
+    width: 100%;
+    height: 100%;
+
+    display: block;
 }
 
 
 .featured-ad-image {
     width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     overflow: hidden;
 
     background: #111315;
 
-    border: 1px solid rgba(255,255,255,0.035);
+    border:
+        1px solid rgba(255, 255, 255, 0.035);
 }
 
 
 .featured-ad-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
 
-    object-fit: cover;
+    /*
+       广告属于档案图片：
+       必须完整显示，不裁切
+    */
+    object-fit: contain;
 
     transition:
-        transform 0.45s ease,
+        transform 0.4s ease,
         filter 0.3s ease;
 }
 
 
 .featured-ad-image:hover img {
-    transform: scale(1.008);
+    transform: scale(1.006);
 
-    filter: brightness(1.025);
-}
-
-
-
-/* 广告下方资料条 */
-
-.featured-ad-info {
-    padding: 20px 4px 0;
-}
-
-
-.featured-label {
-    color: #7f909b;
-
-    font-size: 11px;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 10px;
-}
-
-
-.featured-title {
-    color: #e8e8e8;
-
-    font-size: 19px;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 8px;
-}
-
-
-.featured-meta {
-    color: #7d878e;
-
-    font-size: 12px;
-
-    letter-spacing: 2px;
+    filter: brightness(1.03);
 }
 
 
@@ -562,7 +459,6 @@ img {
     color: #e3e7e9;
 
     font-size: 21px;
-
     font-weight: 500;
 
     letter-spacing: 6px;
@@ -625,7 +521,6 @@ img {
     color: #9eacb6;
 
     font-size: 18px;
-
     font-weight: 600;
 
     letter-spacing: 4px;
@@ -654,7 +549,7 @@ img {
     padding: 55px 0 70px;
 
     border-top:
-        1px solid rgba(255,255,255,0.06);
+        1px solid rgba(255, 255, 255, 0.06);
 
     text-align: center;
 }
@@ -662,7 +557,6 @@ img {
 
 .footer-logo {
     width: 220px;
-
     max-width: 55%;
 
     margin: 0 auto 22px;
@@ -765,7 +659,10 @@ img {
 
 
 
-    /* 首页改成上下布局 */
+    /*
+       手机版：
+       品牌墙和广告改成上下排列
+    */
 
     .home-feature-grid {
         display: block;
@@ -774,19 +671,24 @@ img {
 
     .left-column {
         width: 100%;
+        height: auto;
 
-        margin-bottom: 35px;
+        margin-bottom: 28px;
     }
 
 
     .right-column {
         width: 100%;
+        height: auto;
     }
 
 
-
     .brand-wall {
+        height: auto;
+
         padding: 18px;
+
+        gap: 5px;
     }
 
 
@@ -795,16 +697,19 @@ img {
     }
 
 
-
-    .featured-ad-info {
-        padding-top: 15px;
+    .featured-ad,
+    .featured-ad-link,
+    .featured-ad-image {
+        height: auto;
     }
 
 
-    .featured-title {
-        font-size: 16px;
-    }
+    .featured-ad-image img {
+        width: 100%;
+        height: auto;
 
+        object-fit: contain;
+    }
 
 
     .cards {
