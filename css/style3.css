@@ -169,7 +169,6 @@ img {
     margin-top: 10px;
 }
 
-
 /* =========================================================
    LEFT COLUMN
    ========================================================= */
@@ -178,8 +177,6 @@ img {
     width: 100%;
     height: 100%;
 }
-
-
 
 /* =========================================================
    BRAND WALL
@@ -206,230 +203,40 @@ img {
     justify-content: space-between;
 }
 
-
-
-/* =========================================================
-   BRAND ITEM
-   ========================================================= */
-
-.brand-item {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 4px 8px;
-
-    border-radius: 3px;
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.2s ease,
-        transform 0.2s ease;
+.brand-item{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
 }
 
 
-.brand-item img {
-    width: 100%;
-    height: auto;
-
-    object-fit: contain;
-
-    opacity: 0.97;
-
-    transition:
-        opacity 0.2s ease,
-        transform 0.2s ease,
-        filter 0.2s ease;
+.brand-item img{
+    max-width:100%;
+    max-height:72px;
+    transition:.3s ease;
 }
 
 
-
-/* =========================================================
-   BRAND HOVER
-   ========================================================= */
-
-.brand-item:hover {
-    background:
-        rgba(255, 255, 255, 0.08);
+.brand-item:hover img{
+    transform:scale(1.05);
+    filter:brightness(1.2);
 }
 
 
-.brand-item:hover img {
-    opacity: 1;
-
-    transform: scale(1.035);
-
-    /*
-       白色 Logo hover 后变冷灰蓝
-    */
-    filter:
-        brightness(0)
-        saturate(100%)
-        invert(69%)
-        sepia(8%)
-        saturate(503%)
-        hue-rotate(162deg)
-        brightness(88%)
-        contrast(86%);
+.brand-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:10px;
 }
 
 
-
-/* =========================================================
-   BRAND ROWS
-   ========================================================= */
-
-.brand-full {
-    width: 100%;
+.featured-ad img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
-
-
-.brand-row {
-    width: 100%;
-}
-
-
-.brand-row-two {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
-
-    gap: 8px;
-
-    align-items: center;
-}
-
-
-
-/* =========================================================
-   INDIVIDUAL LOGO SIZE CONTROL
-   ========================================================= */
-
-.brand-wall img[alt="TDK"] {
-    max-height: 105px;
-}
-
-
-.brand-wall img[alt="SONY"] {
-    max-height: 92px;
-}
-
-
-.brand-wall img[alt="maxell"] {
-    max-height: 108px;
-}
-
-
-.brand-wall img[alt="AXIA"] {
-    max-height: 65px;
-}
-
-
-.brand-wall img[alt="DENON"] {
-    max-height: 62px;
-}
-
-
-.brand-wall img[alt="That's"] {
-    max-height: 62px;
-}
-
-
-.brand-wall img[alt="AIWA"] {
-    max-height: 62px;
-}
-
-
-.brand-wall img[alt="BASF"] {
-    max-height: 92px;
-}
-
-
-.brand-wall img[alt="TOSHIBA"] {
-    max-height: 84px;
-}
-
-
-.brand-wall img[alt="Panasonic"] {
-    max-height: 52px;
-}
-
-
-.brand-wall img[alt="SANYO"] {
-    max-height: 52px;
-}
-
-/* =========================================================
-   RIGHT COLUMN
-   ========================================================= */
-
-.right-column {
-    width: 100%;
-    height: 100%;
-}
-
-/* =========================================================
-   FEATURED ADVERTISEMENT
-   ========================================================= */
-
-.featured-ad {
-    width: 100%;
-    height: 100%;
-}
-
-
-.featured-ad-link {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-}
-
-
-.featured-ad-image {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-
-    background: #111315;
-
-    border:
-        1px solid rgba(255, 255, 255, 0.035);
-}
-
-
-.featured-ad-image img {
-    width: 100%;
-    height: 100%;
-
-    /*
-       广告属于档案图片：
-       必须完整显示，不裁切
-    */
-    object-fit: contain;
-
-    transition:
-        transform 0.4s ease,
-        filter 0.3s ease;
-}
-
-
-.featured-ad-image:hover img {
-    transform: scale(1.006);
-
-    filter: brightness(1.03);
-}
-
 
 
 
@@ -659,38 +466,3 @@ img {
     }
 
 }
-
-
-/* =========================================================
-   MOBILE TOP FEATURE FIX
-   Brand wall + Advertisement stack vertically
-   ========================================================= */
-
-@media (max-width:768px){
-
-    .home-feature-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-    .brand-wall{
-
-        height:auto;
-
-        min-height:420px;
-
-    }
-
-
-    .featured-ad img{
-
-        height:auto;
-
-        object-fit:contain;
-
-    }
-
-}
-
