@@ -1,229 +1,835 @@
-/* CassetteLand Main Style */
+/* =========================================================
+   CassetteLand
+   Main Stylesheet
+   ========================================================= */
+
+
+/* ---------- BASE ---------- */
 
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
+
     background:
         linear-gradient(
-            rgba(10,12,14,0.45),
-            rgba(10,12,14,0.65)
+            rgba(10, 12, 14, 0.42),
+            rgba(10, 12, 14, 0.58)
         ),
         url("../images/bg.jpg");
 
     background-repeat: repeat;
-    background-size: auto;
+    background-position: top left;
 
     color: #e8e8e8;
+
     font-family:
         "Helvetica Neue",
         Arial,
         sans-serif;
+
+    min-height: 100vh;
 }
 
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
 
 .container {
     width: 90%;
-    max-width: 1200px;
-    margin: auto;
+    max-width: 1380px;
+    margin: 0 auto;
 }
 
 
-/* Header */
 
-header {
-    padding: 30px 0;
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+    min-height: 120px;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
+    padding: 24px 0 26px;
 }
 
 
-.logo {
-    width: 320px;
+.site-logo-link {
+    display: block;
 }
 
 
-nav a {
-    color: #b8c4cc;
-    text-decoration: none;
-    margin-left: 25px;
+.site-logo {
+    width: 370px;
+    max-width: 36vw;
+    height: auto;
+}
+
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+
+.main-nav a {
+    position: relative;
+
+    color: #bec9d0;
+
     font-size: 14px;
+    font-weight: 500;
+
     letter-spacing: 2px;
+
+    padding: 10px 0;
+
+    transition:
+        color 0.2s ease,
+        opacity 0.2s ease;
 }
 
 
-nav a:hover {
+.main-nav a:hover,
+.main-nav a.active {
     color: #ffffff;
 }
 
 
+.main-nav a::after {
+    content: "";
 
-/* Hero */
+    position: absolute;
 
-.hero {
+    left: 0;
+    bottom: 2px;
 
-    min-height: 520px;
+    width: 0;
+    height: 1px;
+
+    background: #8a9aa5;
+
+    transition: width 0.22s ease;
+}
+
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+
+
+/* =========================================================
+   HOME MAIN FEATURE GRID
+   左：品牌墙
+   右：广告
+   ========================================================= */
+
+.home-feature-grid {
+    display: grid;
+
+    /*
+       左栏约 34%
+       右栏约 66%
+    */
+    grid-template-columns:
+        minmax(300px, 0.34fr)
+        minmax(0, 0.66fr);
+
+    gap: 30px;
+
+    align-items: start;
+
+    margin-top: 10px;
+}
+
+
+
+/* =========================================================
+   LEFT COLUMN
+   ========================================================= */
+
+.left-column {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 46px;
+}
+
+
+
+/* =========================================================
+   BRAND WALL
+   ========================================================= */
+
+.brand-wall {
+    width: 100%;
+
+    padding: 20px 20px;
+
+    background: #5e6b74;
+
+    /*
+       与下面 archive-card 保持完全相同宽度
+    */
+    overflow: hidden;
+}
+
+
+
+/* 单个品牌 Logo */
+
+.brand-item {
+    width: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    padding: 5px 8px;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.brand-item img {
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    opacity: 0.97;
+
+    /*
+       品牌 Logo 已经全部改成白色，
+       所以这里不再强制 filter。
+    */
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+
+
+/* Hover */
+
+.brand-item:hover {
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.brand-item:hover img {
+    opacity: 1;
+
+    transform: scale(1.035);
+
+    /*
+       白色 Logo hover 时轻微偏冷灰蓝
+       如果觉得变化不明显，可以后面再调整。
+    */
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(69%)
+        sepia(8%)
+        saturate(503%)
+        hue-rotate(162deg)
+        brightness(88%)
+        contrast(86%);
+}
+
+
+
+/* 单行单品牌 */
+
+.brand-full {
+    width: 100%;
+}
+
+
+
+/* 一行两个品牌 */
+
+.brand-row {
+    width: 100%;
+}
+
+
+.brand-row-two {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 8px;
+
+    align-items: center;
+}
+
+
+
+/* =========================================================
+   BRAND LOGO 尺寸微调
+   每个 Logo 原始比例不同，所以允许单独控制
+   ========================================================= */
+
+/* TDK */
+
+.brand-wall a[href="#"]:has(
+    img[alt="TDK"]
+) img {
+    max-height: 105px;
+}
+
+
+/* SONY */
+
+.brand-wall img[alt="SONY"] {
+    max-height: 90px;
+}
+
+
+/* maxell */
+
+.brand-wall img[alt="maxell"] {
+    max-height: 105px;
+}
+
+
+/* AXIA */
+
+.brand-wall img[alt="AXIA"] {
+    max-height: 64px;
+}
+
+
+/* DENON */
+
+.brand-wall img[alt="DENON"] {
+    max-height: 64px;
+}
+
+
+/* That's */
+
+.brand-wall img[alt="That's"] {
+    max-height: 62px;
+}
+
+
+/* AIWA */
+
+.brand-wall img[alt="AIWA"] {
+    max-height: 62px;
+}
+
+
+/* BASF */
+
+.brand-wall img[alt="BASF"] {
+    max-height: 90px;
+}
+
+
+/* TOSHIBA */
+
+.brand-wall img[alt="TOSHIBA"] {
+    max-height: 82px;
+}
+
+
+/* Panasonic */
+
+.brand-wall img[alt="Panasonic"] {
+    max-height: 52px;
+}
+
+
+/* SANYO */
+
+.brand-wall img[alt="SANYO"] {
+    max-height: 52px;
+}
+
+
+
+/* =========================================================
+   LEFT ARCHIVE CARD
+   与品牌墙完全同宽
+   ========================================================= */
+
+.archive-card {
+    width: 100%;
+
+    min-height: 230px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
     text-align: center;
 
+    border: 1px solid #343a3f;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    padding: 36px 24px;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
 }
 
 
-.hero-logo {
+.archive-card:hover {
+    background:
+        rgba(138, 154, 165, 0.07);
 
-    width: 500px;
-    max-width: 90%;
+    border-color: #58636a;
 
+    transform: translateY(-2px);
 }
 
 
-.subtitle {
+.archive-card-title {
+    margin-bottom: 24px;
 
-    margin-top: 35px;
+    color: #9cabb5;
 
-    color:#8a9aa5;
+    font-size: 19px;
+    font-weight: 600;
 
-    letter-spacing:4px;
+    letter-spacing: 5px;
+}
 
-    font-size:16px;
 
+.archive-card-text {
+    color: #c2c8cc;
+
+    font-size: 15px;
+
+    line-height: 1.3;
 }
 
 
 
-.description {
+/* =========================================================
+   RIGHT COLUMN
+   ========================================================= */
 
-    margin-top:20px;
-
-    color:#a8b0b5;
-
-    line-height:1.8;
-
+.right-column {
+    width: 100%;
 }
 
 
 
-/* Sections */
+/* =========================================================
+   FEATURED ADVERTISEMENT
+   ========================================================= */
+
+.featured-ad {
+    width: 100%;
+}
+
+
+.featured-ad-image {
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #111315;
+
+    border: 1px solid rgba(255,255,255,0.035);
+}
+
+
+.featured-ad-image img {
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.45s ease,
+        filter 0.3s ease;
+}
+
+
+.featured-ad-image:hover img {
+    transform: scale(1.008);
+
+    filter: brightness(1.025);
+}
+
+
+
+/* 广告下方资料条 */
+
+.featured-ad-info {
+    padding: 20px 4px 0;
+}
+
+
+.featured-label {
+    color: #7f909b;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 10px;
+}
+
+
+.featured-title {
+    color: #e8e8e8;
+
+    font-size: 19px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+
+.featured-meta {
+    color: #7d878e;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+
+/* =========================================================
+   COMMON SECTIONS
+   ========================================================= */
 
 .section {
-
-    padding:80px 0;
-
+    padding: 95px 0 35px;
 }
 
 
 .section-title {
+    text-align: center;
 
-    text-align:center;
+    margin-bottom: 48px;
 
-    font-size:22px;
+    color: #e3e7e9;
 
-    letter-spacing:5px;
+    font-size: 21px;
 
-    margin-bottom:50px;
+    font-weight: 500;
 
-    color:#dfe5e8;
-
+    letter-spacing: 6px;
 }
 
 
 
-/* Cards */
+/* =========================================================
+   THREE COLUMN CARDS
+   ========================================================= */
 
 .cards {
-
-    display:grid;
+    display: grid;
 
     grid-template-columns:
-    repeat(3,1fr);
+        repeat(3, minmax(0, 1fr));
 
-    gap:30px;
-
+    gap: 30px;
 }
-
 
 
 .card {
+    min-height: 220px;
 
-    border:1px solid #343a3f;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 36px 25px;
+
+    border: 1px solid #343a3f;
 
     background:
-    rgba(255,255,255,0.03);
+        rgba(255, 255, 255, 0.025);
 
-    padding:35px;
-
-    text-align:center;
-
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
+
+.card:hover {
+    border-color: #59656d;
+
+    background:
+        rgba(138, 154, 165, 0.07);
+
+    transform: translateY(-3px);
+}
 
 
 .card h3 {
+    margin: 0 0 23px;
 
-    color:#8a9aa5;
+    color: #9eacb6;
 
-    letter-spacing:3px;
+    font-size: 18px;
 
+    font-weight: 600;
+
+    letter-spacing: 4px;
 }
-
 
 
 .card p {
+    margin: 0;
 
-    color:#a0a6aa;
+    color: #bbc2c6;
 
-    font-size:14px;
+    font-size: 14px;
+
+    line-height: 1.35;
+}
+
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+    margin-top: 80px;
+
+    padding: 55px 0 70px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.06);
+
+    text-align: center;
+}
+
+
+.footer-logo {
+    width: 220px;
+
+    max-width: 55%;
+
+    margin: 0 auto 22px;
+}
+
+
+.footer-tagline {
+    color: #89969f;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+}
+
+
+.footer-copy {
+    color: #596168;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .site-header {
+        flex-direction: column;
+
+        gap: 25px;
+
+        padding-bottom: 35px;
+    }
+
+
+    .site-logo {
+        width: 360px;
+        max-width: 80vw;
+    }
+
+
+    .main-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 16px 26px;
+    }
+
+
+    .home-feature-grid {
+        grid-template-columns:
+            minmax(260px, 0.38fr)
+            minmax(0, 0.62fr);
+
+        gap: 22px;
+    }
 
 }
 
 
 
-/* Footer */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
-footer {
+@media (max-width: 760px) {
 
-    padding:50px 0;
-
-    text-align:center;
-
-    color:#6f777d;
-
-    font-size:13px;
-
-}
-
-
-
-@media(max-width:800px){
-
-    header {
-
-        flex-direction:column;
-
-        gap:20px;
-
+    .container {
+        width: 92%;
     }
 
 
-    nav a {
-
-        margin:0 8px;
-
+    .site-header {
+        min-height: auto;
     }
+
+
+    .site-logo {
+        width: 310px;
+    }
+
+
+    .main-nav {
+        gap: 10px 17px;
+    }
+
+
+    .main-nav a {
+        font-size: 11px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+
+    /* 首页改成上下布局 */
+
+    .home-feature-grid {
+        display: block;
+    }
+
+
+    .left-column {
+        width: 100%;
+
+        margin-bottom: 35px;
+    }
+
+
+    .right-column {
+        width: 100%;
+    }
+
+
+
+    .brand-wall {
+        padding: 18px;
+    }
+
+
+    .brand-row-two {
+        gap: 7px;
+    }
+
+
+
+    .featured-ad-info {
+        padding-top: 15px;
+    }
+
+
+    .featured-title {
+        font-size: 16px;
+    }
+
 
 
     .cards {
+        grid-template-columns: 1fr;
 
-        grid-template-columns:1fr;
+        gap: 18px;
+    }
 
+
+    .section {
+        padding-top: 68px;
+    }
+
+
+    .section-title {
+        font-size: 18px;
+
+        letter-spacing: 4px;
+
+        margin-bottom: 32px;
+    }
+
+
+    .card {
+        min-height: 180px;
     }
 
 }
