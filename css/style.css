@@ -164,7 +164,7 @@ img {
 
 .search-input{
     position:relative;
-    width:328px;
+    width:358px;
 }
 
 .search-input img{
@@ -196,18 +196,15 @@ img {
 }
 
 .search-input input:focus{
-
     border-color:#cfd6dc;
-
     box-shadow:0 0 8px rgba(255,255,255,.15);
-
     outline:none;
 
 }
 
 .search-box button{
     height:40px;
-    padding:0 35px;
+    padding:0 20px;
     background:#66727B;
     border:1px solid rgba(255,255,255,.25);
     color:#ddd;
@@ -881,6 +878,27 @@ img {
 
     .search-box button{
         flex-shrink:0;
+    }
+
+
+    .filters{
+    width:100%;
+    display:flex;
+    gap:8px;
+    }
+
+    .filters select{
+    height:28px;
+    padding:0 4px;
+    font-size:12px;
+    min-width:0;
+   }
+
+   .filter-search{
+    height:28px;
+    padding:0 12px;
+    font-size:12px;
+    flex-shrink:0;
     }
 
 
