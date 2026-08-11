@@ -3,29 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CassetteLand</title>
+<title>CASSETTE GALLERY磁带美术馆 | Vintage Cassette Archive & Design Gallery</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body oncontextmenu="return false;">
 <div class="container">
 
 <header class="site-header">
 <a href="index.html">
-<img class="site-logo" src="images/CassetteLand_logo.svg" alt="CassetteLand">
+<img class="site-logo" src="images/CassetteGallery_logo.svg" alt="CassetteLand">
 </a>
 
 <nav class="main-nav">
 <a class="active" href="#">HOME</a>
 <a href="#">BRANDS</a>
-<a href="#">SERIES</a>
-<a href="#">TIMELINE</a>
+<a href="#">ICONS</a>
+<a href="#">EXHIBITIONS</a>
+<a href="#">REWORKS</a>
 <a href="#">ARCHIVE</a>
 <a href="#">ABOUT</a>
 </nav>
 </header>
 
+<div class="top-tools">
+  <!-- =================================================
+                 SEARCH BOX
+  ================================================== -->
+  <div class="search-box">
+     <div class="search-input">
+          <img src="images/search_icon.png" alt="">
+          <input 
+            type="text"
+            placeholder="Search tapes, brands, models..."
+          >
+       </div>
+    <button>Search</button>
+  </div>
 
+
+ <!-- =================================================
+                 INFO BAR
+ ================================================== -->
+  <div class="info-bar">
+
+      <div class="archive-stats">
+          <div>Tapes : 500+</div>
+          <div>Brands : 80+</div>
+          <div>Era : 1970s-2000s</div>
+          <div>Documents : 120+</div>
+          <div>Images : 3,000+</div>
+      </div>
+
+
+      <div class="filters">
+         <select>
+         <option value="">Brand</option>
+         <option value="tdk">TDK</option>
+         <option value="sony">SONY</option>
+         <option value="maxell">maxell</option>
+         <option value="axia">AXIA</option>
+         <option value="axia">AXIA</option>
+         <option value="denon">DENON</option>
+         <option value="that's">That's</option>
+         <option value="panasonic">Panasonic</option>
+         <option value="toshiba">TOSHIBA</option>
+         <option value="basf">BASF</option>
+         </select>
+
+         <select>
+         <option value="">Running time</option>
+         <option value="C46">C46</option>
+         <option value="C60">C60</option>
+         <option value="C90">C90</option>
+         </select>
+
+         <select>
+         <option value="">Type</option>
+         <option value="I">Type I</option>
+         <option value="II">Type II</option>
+         <option value="III">Type III</option>
+         <option value="IV">Type IV</option>
+         </select>
+
+         <select>
+         <option value="">Colour</option>
+         <option value="black">Black</option>
+         <option value="white">White</option>
+         <option value="silver">Silver</option>
+         </select>
+
+         <button class="filter-search">
+          Search
+         </button>
+     </div>
+  </div>
+</div>
+
+ <!-- =================================================
+             TOP FEATURE AREA
+             LEFT: BRAND WALL
+             RIGHT: FEATURED ADVERTISEMENT
+ ================================================== -->
 <section class="home-feature-grid">
 
             <!-- =================================================
@@ -34,14 +113,10 @@
 
             <div class="left-column">
 
-
                 <!-- BRAND WALL -->
-
                 <section class="brand-wall">
 
-
                     <!-- TDK -->
-
                     <a href="#" class="brand-item brand-full">
                         <img
                             src="images/brands/TDK_logo.svg"
@@ -49,9 +124,7 @@
                         >
                     </a>
 
-
                     <!-- SONY -->
-
                     <a href="#" class="brand-item brand-full">
                         <img
                             src="images/brands/SONY_logo.svg"
@@ -59,9 +132,7 @@
                         >
                     </a>
 
-
                     <!-- MAXELL -->
-
                     <a href="#" class="brand-item brand-full">
                         <img
                             src="images/brands/maxell_logo.svg"
@@ -69,10 +140,7 @@
                         >
                     </a>
 
-
-
                     <!-- AXIA + DENON -->
-
                     <div class="brand-row brand-row-two">
 
                         <a href="#" class="brand-item">
@@ -91,10 +159,7 @@
 
                     </div>
 
-
-
                     <!-- THAT'S + AIWA -->
-
                     <div class="brand-row brand-row-two">
 
                         <a href="#" class="brand-item">
@@ -113,10 +178,7 @@
 
                     </div>
 
-
-
                     <!-- BASF -->
-
                     <a href="#" class="brand-item brand-full">
                         <img
                             src="images/brands/BASF_logo.svg"
@@ -124,10 +186,7 @@
                         >
                     </a>
 
-
-
                     <!-- TOSHIBA -->
-
                     <a href="#" class="brand-item brand-full">
                         <img
                             src="images/brands/TOSHIBA_logo.svg"
@@ -135,10 +194,7 @@
                         >
                     </a>
 
-
-
                     <!-- PANASONIC + SANYO -->
-
                     <div class="brand-row brand-row-two">
 
                         <a href="#" class="brand-item">
@@ -183,7 +239,7 @@
                         <div class="featured-ad-image">
 
                             <img
-                                src="images/ads/index_featured_ad.png"
+                                src="images/ads/Curated-Exhibition.jpg"
                                 alt="Sony Super Metal Master Advertisement"
                             >
 
@@ -238,7 +294,7 @@
 <section class="section">
 <h2>BROWSE</h2>
 
-<h3 class="browse-title">BY TAPE TYPE</h3>
+<h3 class="browse-title">≡BY TAPE TYPE≡</h3>
 
 <div class="series-grid">
 
@@ -271,7 +327,7 @@
 
 </div>
 
-<h3 class="browse-title">BY ERA</h3>
+<h3 class="browse-title">≡BY ERA≡</h3>
 
 <div class="series-grid">
 
@@ -294,10 +350,10 @@
 </a>
 
 <a class="series-card">
-<img src="images/browse/era/1990s_TDK_MA_XG90.png">
+<img src="images/browse/era/1995s_TDK_SA60_BlackLimite.png">
 <div class="series-overlay">
 <h3>1990s</h3>
-<p>TDK MA-XG90</p>
+<p>TDK SA60 BlackLimite</p>
 <span>Peak technology era</span>
 </div>
 </a>
@@ -307,31 +363,69 @@
 
 
 <section class="section">
+
 <h2>ARCHIVE</h2>
 
-<div class="cards">
-<div class="card"><h3>CATALOGS</h3><p>Manufacturer catalogs</p></div>
-<div class="card"><h3>ADVERTISEMENTS</h3><p>Vintage advertising</p></div>
-<div class="card"><h3>DOCUMENTS</h3><p>Technical references</p></div>
+<div class="archive-grid">
+
+    <div class="archive-card">
+        <img src="images/archive/catalogs.jpg">
+
+        <div class="archive-overlay">
+            <h3>CATALOGS</h3>
+            <p>Manufacturer catalogs</p>
+        </div>
+    </div>
+
+
+    <div class="archive-card">
+        <img src="images/archive/advertisements.jpg">
+
+        <div class="archive-overlay">
+            <h3>ADVERTISEMENTS</h3>
+            <p>Vintage advertising</p>
+        </div>
+    </div>
+
+
+    <div class="archive-card">
+        <img src="images/archive/documents.jpg">
+
+        <div class="archive-overlay">
+            <h3>DOCUMENTS</h3>
+            <p>Technical references</p>
+        </div>
+    </div>
+
 </div>
 
 </section>
 
 
 <section class="section">
-<h2>ABOUT CASSETTELAND</h2>
+<h2>ABOUT CASSETTE GALLERY</h2>
 
 <div class="about-text">
-<p>An archive dedicated to cassette tapes, magnetic media and the history of analog sound.</p>
-<p>Exploring classic brands, legendary formulations, advertisements and the culture behind them.</p>
+<p>
+Cassette Gallery is not a complete archive. It is a curated space for rediscovering cassette tapes through design, material, colour and form.
+</p>
+
+<p>
+We look beyond fame, price and performance, from celebrated classics to forgotten oddities, focusing on what makes each cassette worth seeing again.
+</p>
+
+<p class="about-slogan">
+Rediscovering the Beauty of Cassettes.
+</p>
 </div>
 
 </section>
 
 
 <footer class="site-footer">
-<img class="footer-logo" src="images/CassetteLand_logo.svg">
-<p>An Archive of Analog Tape Culture</p>
+<img class="footer-logo" src="images/CassetteGallery_logo.svg">
+<p class="footer-tagline">Rediscovering the Beauty of Cassettes</p>
+<p class="footer-tagline">Copyright © 2026-2026 by Cassette Gallery, all rights reserved.</p>
 </footer>
 
 

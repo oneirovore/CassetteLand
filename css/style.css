@@ -50,6 +50,8 @@ a {
 img {
     display: block;
     max-width: 100%;
+    -webkit-user-drag:none;
+    user-select:none;
 }
 
 
@@ -69,13 +71,11 @@ img {
    ========================================================= */
 
 .site-header {
-    min-height: 120px;
-
+    min-height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 24px 0 26px;
+    padding: 10px 0 2px;
 }
 
 
@@ -144,6 +144,157 @@ img {
     width: 100%;
 }
 
+
+.top-tools{
+    display:flex;
+    align-items:center;
+    gap:40px;
+}
+
+/* =========================================================
+   SEARCH BOX
+   ========================================================= */
+.search-box{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:10px;
+    margin:20px 0;
+}
+
+.search-input{
+    position:relative;
+    width:328px;
+}
+
+.search-input img{
+    position:absolute;
+    left:12px;
+    top:50%;
+    transform:translateY(-50%);
+    width:30px;
+    height:30px;
+    opacity:.85;
+}
+
+.search-input input{
+    width:100%;
+    height:40px;
+    box-sizing:border-box;
+    padding-left:55px;
+    padding-right:20px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.25);
+    color:#ddd;
+    font-size:14px;
+    letter-spacing:1px;
+    outline:none;
+}
+
+.search-input input::placeholder{
+    color:#89969f;
+}
+
+.search-input input:focus{
+
+    border-color:#cfd6dc;
+
+    box-shadow:0 0 8px rgba(255,255,255,.15);
+
+    outline:none;
+
+}
+
+.search-box button{
+    height:40px;
+    padding:0 35px;
+    background:#66727B;
+    border:1px solid rgba(255,255,255,.25);
+    color:#ddd;
+    font-size:14px;
+    letter-spacing:2px;
+    cursor:pointer;
+}
+
+.search-box button:hover{
+    background:#89969f;
+    color:#111;
+}
+
+
+/* =========================================================
+   ARCHIVE INFO BAR
+   ========================================================= */
+
+.info-bar{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+
+/* statistics */
+
+.archive-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,auto);
+
+    gap:10px 45px;
+
+    font-size:14px;
+
+    white-space:nowrap;
+
+}
+
+
+
+/* filters */
+
+.filters{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    white-space:nowrap;
+
+}
+
+
+.filters select{
+
+    font-size:13px;
+    height:22px;
+    box-sizing:border-box;
+
+}
+
+
+.filter-search{
+
+    height:22px;
+    padding:0 14px;
+    background:#69757d;
+    border:1px solid rgba(255,255,255,.25);
+    color:#ddd;
+    font-size:13px;
+    cursor:pointer;
+
+}
+
+.filter-search:hover{
+    background:#89969f;
+    color:#111;
+}
 
 /* =========================================================
    HOME FEATURE GRID
@@ -436,14 +587,14 @@ img {
 /* sections */
 
 .section{
-    margin-top:90px;
+    margin-top:60px;
 }
 
 .section h2{
     text-align:center;
     letter-spacing:8px;
     font-weight:400;
-    margin-bottom:50px;
+    margin-bottom:20px;
 }
 
 
@@ -524,13 +675,75 @@ img {
     text-align:center;
     letter-spacing:5px;
     font-weight:400;
-    margin:60px 0 30px;
+    margin:30px 0 30px;
+}
+
+/* =========================================================
+   ARCHIVE CARDS
+   ========================================================= */
+
+.archive-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.archive-card{
+    position:relative;
+    overflow:hidden;
+    height:220px;
+    border:1px solid rgba(255,255,255,.15);
+    cursor:pointer;
+}
+
+.archive-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0.35;
+    transition:.4s ease;
+}
+
+.archive-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:rgba(0,0,0,.65);
+    opacity:1;
+    transition:.35s ease;
+}
+
+.archive-card:hover img{
+    opacity:1;
+    filter:brightness(.7);
+    transform:scale(1.05);
+}
+
+.archive-card:hover .archive-overlay{
+    opacity:0;
+}
+
+.archive-overlay h3{
+    letter-spacing:4px;
+    font-weight:500;
+    margin-bottom:15px;
+}
+
+.archive-overlay p{
+    color:#9aa6af;
+    letter-spacing:2px;
+    font-size:14px;
 }
 
 /* =========================================================
    FOOTER
    ========================================================= */
 .about-text{
+    color: #89969f;
     max-width:700px;
     margin:auto;
     text-align:center;
@@ -538,14 +751,15 @@ img {
 }
 
 
+.about-text p{
+    margin:0 0 1px 0;
+}
+
+
 .site-footer {
-    margin-top: 80px;
-
-    padding: 55px 0 70px;
-
-    border-top:
-        1px solid rgba(255, 255, 255, 0.06);
-
+    margin-top: 20px;
+    padding: 25px 0 70px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
     text-align: center;
 }
 
@@ -553,27 +767,21 @@ img {
 .footer-logo {
     width: 220px;
     max-width: 55%;
-
     margin: 0 auto 22px;
 }
 
 
 .footer-tagline {
     color: #89969f;
-
     font-size: 12px;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 25px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
 
 .footer-copy {
     color: #596168;
-
     font-size: 12px;
-
     letter-spacing: 1px;
 }
 
@@ -587,15 +795,12 @@ img {
 /* TABLET */
 
 @media (max-width:1024px){
-
     .container{
         width:92%;
     }
-
     .main-nav{
         gap:20px;
     }
-
     .series-grid,
     .cards{
         grid-template-columns:repeat(2,1fr);
@@ -607,20 +812,16 @@ img {
 /* MOBILE */
 
 @media (max-width:768px){
-
     .container{
         width:90%;
     }
-
     .site-header{
         flex-direction:column;
         gap:25px;
     }
-
     .site-logo{
         max-width:80vw;
     }
-
     .main-nav{
         flex-wrap:wrap;
         justify-content:center;
@@ -641,6 +842,47 @@ img {
     .section h2{
         letter-spacing:5px;
     }
+
+    
+
+    .top-tools{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+
+
+    .info-bar{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+
+    .search-box{
+        width:100%;
+    }
+
+
+    .search-input{
+        width:auto;
+        flex:1;
+    }
+
+
+    .search-box button{
+        flex-shrink:0;
+    }
+
 
 }
 
