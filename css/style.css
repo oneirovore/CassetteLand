@@ -901,6 +901,16 @@ img {
     flex-shrink:0;
     }
 
+    .archive-stats{
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 24px;
+    }
+
+    .archive-stats span{
+    white-space:nowrap;
+    }
 
 }
 
